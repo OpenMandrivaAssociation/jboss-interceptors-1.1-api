@@ -1,10 +1,10 @@
-%_javapackages_macros
+%{?_javapackages_macros:%_javapackages_macros}
 %global namedreltag .20120319git49a904
 %global namedversion %{version}%{?namedreltag}
 
 Name:             jboss-interceptors-1.1-api
 Version:          1.0.2
-Release:          0.7%{namedreltag}.0%{?dist}
+Release:          0.7%{namedreltag}.1%{?dist}
 Summary:          Interceptors 1.1 API
 
 License:          CDDL or GPLv2 with exceptions
