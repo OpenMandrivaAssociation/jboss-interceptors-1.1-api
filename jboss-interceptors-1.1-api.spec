@@ -4,9 +4,9 @@
 
 Name:             jboss-interceptors-1.1-api
 Version:          1.0.2
-Release:          0.7%{namedreltag}.1%{?dist}
+Release:          0.10%{namedreltag}.2
 Summary:          Interceptors 1.1 API
-
+Group:		  Development/Java
 License:          CDDL or GPLv2 with exceptions
 URL:              http://www.jboss.org
 
@@ -46,33 +46,15 @@ This package contains the API documentation for %{name}.
 %setup -q -n jboss-interceptors-1.1-api
 
 %build
-mvn-rpmbuild install javadoc:aggregate
+%mvn_build
 
 %install
-install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
-install -d -m 755 $RPM_BUILD_ROOT%{_mavenpomdir}
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}
+%mvn_install
 
-# JAR
-install -pm 644 target/jboss-interceptors-api_1.1_spec-%{version}.Final-SNAPSHOT.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
-
-# POM
-install -pm 644 pom.xml $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
-
-# DEPMAP
-%add_maven_depmap JPP-%{name}.pom %{name}.jar
-
-# APIDOCS
-cp -rp target/site/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-
-%files
-%{_javadir}/*
-%{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
+%files -f .mfiles
 %doc LICENSE README
 
-%files javadoc
-%{_javadocdir}/%{name}
+%files javadoc -f .mfiles-javadoc
 %doc LICENSE
 
 %changelog
