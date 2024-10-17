@@ -8,7 +8,7 @@ Release:          0.10%{namedreltag}.2
 Summary:          Interceptors 1.1 API
 Group:		  Development/Java
 License:          CDDL or GPLv2 with exceptions
-URL:              http://www.jboss.org
+URL:              https://www.jboss.org
 
 # git clone git://github.com/jboss/jboss-interceptors-api_spec.git jboss-interceptors-1.1-api
 # cd jboss-interceptors-1.1-api/ && git archive --format=tar --prefix=jboss-interceptors-1.1-api/ 49a90471d8108b5b2a2da6063b5591a9f41ed24a | xz > jboss-interceptors-1.1-api-1.0.2.20120319git49a904.tar.xz
